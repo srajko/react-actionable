@@ -9,7 +9,7 @@ class ActionableList extends React.Component {
 
     const children = _.map(
       actionables,
-      (actionable) => <ActionableToRender actionable={actionable} />
+      (actionable) => <ActionableToRender actionable={actionable} key={actionable.id} />
     );
     return <Root {...this.props}>{children}</Root>;
   }

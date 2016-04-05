@@ -6,8 +6,10 @@ import { style } from 'react-stylesheet';
 const { ActionableList } = require('..');
 
 const actionables = [{
+  id: 1,
   summary: 'An actionable summary'
 }, {
+  id: 2,
   summary: 'Another actionable'
 }];
 
