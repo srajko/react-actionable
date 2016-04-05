@@ -12,7 +12,6 @@
   "author": "Stjepan Rajko",
   "license": "ISC",
   "dependencies": {
-    "actionable-js": "0.0.3",
     "react": "^0.14.8",
     "react-stylesheet": "^0.8.2"
   },
