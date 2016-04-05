@@ -1,5 +1,4 @@
-const Actionable = require('./actionable.js');
-
 module.exports = {
-  Actionable
+  Actionable: require('./actionable.js'),
+  ActionableList: require('./actionable_list.js')
 };

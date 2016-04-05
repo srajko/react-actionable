@@ -7,7 +7,7 @@
     "compile": "babel -d lib/ source/",
     "lint": "eslint source/** test/**",
     "prepublish": "npm run compile",
-    "test": "npm run compile && mocha --compilers js:babel-core/register test/index.js"
+    "test": "npm run compile && mocha --compilers js:babel-core/register test/*.js"
   },
   "author": "Stjepan Rajko",
   "license": "ISC",
