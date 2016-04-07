@@ -1,4 +1,4 @@
 module.exports = {
-  Actionable: require('./actionable.js'),
-  ActionableList: require('./actionable_list.js')
+  base: require('./base'),
+  bootstrap: require('./bootstrap')
 };

@@ -1,9 +1,11 @@
 const React = require('react');
 const ReactTestUtils = require('react-addons-test-utils');
 const assert = require('assert');
-import { style } from 'react-stylesheet';
 
-const { Actionable } = require('..');
+const {
+  base: { Actionable },
+  bootstrap: { Actionable: BootstrapActionable }
+} = require('..');
 
 const actionable = {
   summary: 'An actionable summary'
@@ -23,24 +25,18 @@ describe('Actionable', () => {
     );
   });
 
-  it('should use stylesheet', () => {
-    const classedDiv = (props) => <div {...props} className="actionable"></div>;
-
-    const ClassedActionable = style(Actionable, {
-      Root: classedDiv
-    });
-
+  it('should render as bootstrap list-group-item', () => {
     const component = ReactTestUtils.renderIntoDocument(
-      <ClassedActionable actionable={actionable} />
+      <BootstrapActionable actionable={actionable} />
     );
 
-    const div = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'div');
+    const node = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'li');
 
     assert.equal(
-      div.textContent,
+      node.textContent,
       'An actionable summary'
     );
 
-    assert(div.classList.contains('actionable'));
+    assert(node.classList.contains('list-group-item'));
   });
 });

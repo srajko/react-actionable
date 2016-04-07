@@ -1,9 +1,11 @@
 const React = require('react');
 const ReactTestUtils = require('react-addons-test-utils');
 const assert = require('assert');
-import { style } from 'react-stylesheet';
 
-const { ActionableList } = require('..');
+const {
+  base: { ActionableList },
+  bootstrap: { ActionableList: BootstrapActionableList }
+} = require('..');
 
 const actionables = [{
   id: 1,
@@ -24,14 +26,9 @@ describe('ActionableList', () => {
     assert.equal(node.childNodes.length, 2);
   });
 
-  it('should use stylesheet', () => {
-    const StyledActionableList = style(ActionableList, {
-      Root: 'ul',
-      Actionable: 'li'
-    });
-
+  it('should render as bootstrap list-group', () => {
     const component = ReactTestUtils.renderIntoDocument(
-      <StyledActionableList actionables={actionables} />
+      <BootstrapActionableList actionables={actionables} />
     );
 
     const node = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'ul');
