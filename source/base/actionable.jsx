@@ -11,7 +11,8 @@ class Actionable extends React.Component {
 }
 
 Actionable.propTypes = {
-  actionable: React.PropTypes.object.isRequired
+  actionable: React.PropTypes.object.isRequired,
+  onDoubleClick: React.PropTypes.func
 };
 
 Actionable.stylesheet = {

@@ -39,4 +39,22 @@ describe('Actionable', () => {
 
     assert(node.classList.contains('list-group-item'));
   });
+
+  it('should respond to doubleclick', () => {
+    let clicked;
+
+    function handler() {
+      clicked = true;
+    }
+
+    const component = ReactTestUtils.renderIntoDocument(
+      <BootstrapActionable actionable={actionable} onDoubleClick={handler} />
+    );
+
+    const node = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'li');
+
+    ReactTestUtils.Simulate.doubleClick(node);
+
+    assert(clicked);
+  });
 });

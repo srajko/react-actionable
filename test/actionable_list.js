@@ -36,4 +36,21 @@ describe('ActionableList', () => {
     assert.equal(node.childNodes.length, 2);
     assert.equal(node.childNodes[0].tagName, 'LI');
   });
+
+  it('should respond to doubleclick', () => {
+    let clicked;
+    function handler(actionable) {
+      clicked = actionable;
+    }
+
+    const component = ReactTestUtils.renderIntoDocument(
+      <BootstrapActionableList actionables={actionables} onActionableDoubleClick={handler} />
+    );
+
+    const node = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'ul');
+
+    ReactTestUtils.Simulate.doubleClick(node.childNodes[0]);
+
+    assert.equal(clicked, actionables[0]);
+  });
 });
